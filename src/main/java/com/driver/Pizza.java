@@ -9,6 +9,7 @@ public class Pizza {
     private boolean isExtraCheeseAdded;
     private boolean isExtraToppingsAdded;
     private boolean isTakeawayAdded;
+    private boolean isBilled;
     private int basePrice;
     private int topping;
     private int cheese;
@@ -19,6 +20,7 @@ public class Pizza {
         isExtraCheeseAdded = false;
         isExtraToppingsAdded= false;
         isTakeawayAdded =false;
+        isBilled = false;
         if(isVeg){
             basePrice = 300;
             topping = 70;
@@ -62,11 +64,14 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        bill += "Base Price Of The Pizza: " + basePrice + "\n";
-        if(isExtraCheeseAdded) bill += "Extra Cheese Added: " + cheese + "\n";
-        if(isExtraToppingsAdded) bill += "Extra Toppings Added: " + topping + "\n";
-        if(isTakeawayAdded) bill += "Paperbag Added: " + takeaway + "\n";
-        bill += "Total Price: " + price + "\n";
+        if(!isBilled){
+            bill += "Base Price Of The Pizza: " + basePrice + "\n";
+            if(isExtraCheeseAdded) bill += "Extra Cheese Added: " + cheese + "\n";
+            if(isExtraToppingsAdded) bill += "Extra Toppings Added: " + topping + "\n";
+            if(isTakeawayAdded) bill += "Paperbag Added: " + takeaway + "\n";
+            bill += "Total Price: " + price + "\n";
+            isBilled = true;
+        }
         return this.bill;
     }
 }
