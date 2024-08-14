@@ -26,6 +26,7 @@ public class Pizza {
             topping = 120;
         }
         cheese = 80;
+        takeaway = 20;
         bill = "Base Price Of The Pizza: " + price + "\n";
     }
 
