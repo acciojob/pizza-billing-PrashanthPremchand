@@ -9,6 +9,7 @@ public class Pizza {
     private boolean isExtraCheeseAdded;
     private boolean isExtraToppingsAdded;
     private boolean isTakeawayAdded;
+    private int basePrice;
     private int topping;
     private int cheese;
     private int takeaway;
@@ -19,15 +20,16 @@ public class Pizza {
         isExtraToppingsAdded= false;
         isTakeawayAdded =false;
         if(isVeg){
-            price = 300;
+            basePrice = 300;
             topping = 70;
         } else{
-            price = 400;
+            basePrice = 400;
             topping = 120;
         }
         cheese = 80;
         takeaway = 20;
-        bill = "Base Price Of The Pizza: " + price + "\n";
+        bill = "";
+        price = basePrice;
     }
 
     public int getPrice(){
@@ -60,6 +62,7 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
+        bill += "Base Price Of The Pizza: " + basePrice + "\n";
         if(isExtraCheeseAdded) bill += "Extra Cheese Added: " + cheese + "\n";
         if(isExtraToppingsAdded) bill += "Extra Toppings Added: " + topping + "\n";
         if(isTakeawayAdded) bill += "Paperbag Added: " + takeaway + "\n";
